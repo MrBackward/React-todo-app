@@ -40,7 +40,7 @@ function TodoItems(props) {
         const pos2 = e.target.value
         setPosition2(pos2)
     }
-npm 
+     
     const dragEnd = (e) => {
         e.preventDefault();
 
