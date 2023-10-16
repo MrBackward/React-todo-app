@@ -5,4 +5,9 @@ import { App } from "./styled";
 
 const destination = document.querySelector("#container");
 
-ReactDOM.render(<App><TodoList/></App>, destination)
+ReactDOM.render(
+  <App>
+    <TodoList />
+  </App>,
+  destination
+);

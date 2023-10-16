@@ -14,18 +14,18 @@ export default css({
   },
 
   h3: {
-    fontSize: '1.25rem',
+    fontSize: "1.25rem",
     margin: 0,
     marginBottom: 5,
   },
 
   p: {
-    fontSize: '0.875rem',
+    fontSize: "0.875rem",
     margin: 0,
     marginBottom: 5,
   },
 
   small: {
-    fontSize: '0.75rem',
-  }
+    fontSize: "0.75rem",
+  },
 });

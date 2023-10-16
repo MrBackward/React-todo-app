@@ -13,10 +13,10 @@ function TodoItem({
   return (
     <ListItem
       draggable={true}
-      onDragOver={e => prepareDrop(e)}
-      onDragStart={e => dragStart(e)}
-      onDrop={e => dragEnd(e)}
-      onDragEnd={e => e.preventDefault()}
+      onDragOver={(e) => prepareDrop(e)}
+      onDragStart={(e) => dragStart(e)}
+      onDrop={(e) => dragEnd(e)}
+      onDragEnd={(e) => e.preventDefault()}
       onClick={() => deleteItem(item.key)}
       value={item.position}
       key={item.key}
