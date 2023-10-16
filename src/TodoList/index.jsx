@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import TodoItems from "./components/TodoItem";
+import TodoForm from "./components/TodoForm";
 import moment from "moment";
+import { TodoListWrapper } from "./styled";
 
 function TodoList() {
   const [userInput, setUserInput] = useState("");
@@ -41,29 +43,15 @@ function TodoList() {
   };
 
   return (
-    <div>
-      <div className="header">
-        <form id="form" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            onChange={handleChangeText}
-            placeholder="Enter Task"
-            required="True"
-          ></input>
-          <br />
-          <div id="timeLabel">Completion Time:</div>
-          <input
-            id="timeSelector"
-            onChange={handleChangeDate}
-            required="True"
-            type="datetime-local"
-          ></input>
-          <br />
-          <button type="submit">add</button>
-        </form>
-      </div>
+    <TodoListWrapper>
+      <h1>Todo App</h1>
+      <TodoForm
+        handleChangeText={handleChangeText}
+        handleChangeDate={handleChangeDate}
+        handleSubmit={handleSubmit}
+      />
       <TodoItems entries={items} delete={deleteItem} />
-    </div>
+    </TodoListWrapper>
   );
 }
 
