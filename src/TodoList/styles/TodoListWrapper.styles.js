@@ -4,9 +4,13 @@ export default css({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
+  fontFamily: "Roboto, sans-serif",
 
   h1: {
-    fontSize: "3.75rem",
-    fontFamily: "Roboto, sans-serif",
+    fontSize: "3rem",
+  },
+
+  h2: {
+    fontSize: "1.5rem",
   },
 });

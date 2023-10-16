@@ -45,6 +45,7 @@ function TodoList() {
   return (
     <TodoListWrapper>
       <h1>Todo App</h1>
+      <h2>Enter your task and completion time</h2>
       <TodoForm
         handleChangeText={handleChangeText}
         handleChangeDate={handleChangeDate}
