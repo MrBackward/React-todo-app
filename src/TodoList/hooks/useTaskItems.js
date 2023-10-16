@@ -5,21 +5,21 @@ import { filterOutItemByKey } from "../logic";
 export const useTaskItems = (form) => {
   const [items, setItems] = useState([]);
 
-  const addItem = (item) => {
-    if (item !== "") {
-      var input = {
-        text: item,
-        completionTime: moment(form.completionTime).toISOString(),
-        key: Date.now(),
-        position: items.length,
-      };
+  const addItem = () => {
+    var input = {
+      title: form.title,
+      description: form.description,
+      completionTime: moment(form.completionTime).toISOString(),
+      key: Date.now(),
+      position: items.length,
+    };
 
-      setItems([...items, input]);
-    }
+    setItems([...items, input]);
   };
 
   const deleteItem = (key) => {
-    setItems(filterOutItemByKey(key));
+    const filteredItems = filterOutItemByKey(key, items);
+    setItems(filteredItems);
   };
 
   return [items, addItem, deleteItem];

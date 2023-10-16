@@ -1,7 +1,7 @@
 import moment from "moment";
 
 export const filterOutItemByKey = (key, items) => {
-  return items.filter((d) => d.key !== key);
+  return items.filter((item) => item.key !== key);
 };
 
 export const getCurrentTimePlus1Hour = () => {

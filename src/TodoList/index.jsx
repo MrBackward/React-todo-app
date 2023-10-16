@@ -1,7 +1,7 @@
 import React from "react";
-import TodoItems from "./components/TodoItem";
+import TodoItems from "./components/TodoItems";
 import TodoForm from "./components/TodoForm";
-import { TodoListWrapper } from "./styled";
+import { TodoListWrapper, Row } from "./styled";
 import { useForm } from "./hooks/useForm";
 import { useTaskItems } from "./hooks/useTaskItems";
 import { getCurrentTimePlus1Hour } from "./logic";
@@ -26,12 +26,16 @@ function TodoList() {
     <TodoListWrapper>
       <h1>Todo App</h1>
       <h2>Enter your task and completion time</h2>
-      <TodoForm
-        form={form}
-        setFieldValue={setFieldValue}
-        handleSubmit={handleSubmit}
-      />
-      <TodoItems entries={items} delete={deleteItem} />
+      <Row>
+      <div>
+        <TodoForm
+          form={form}
+          setFieldValue={setFieldValue}
+          handleSubmit={handleSubmit}
+          />
+          </div>
+        <TodoItems items={items} deleteItem={deleteItem} />
+      </Row>
     </TodoListWrapper>
   );
 }

@@ -1,9 +1,7 @@
 import { css } from "@vitality-ds/system";
 
 export default css({
+  width: "100%",
   display: "flex",
-  flexDirection: "column",
-  alignSelf: "start",
-
-  gap: 16,
+  justifyContent: "space-evenly",
 });

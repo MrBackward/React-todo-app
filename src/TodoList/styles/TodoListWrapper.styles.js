@@ -5,6 +5,7 @@ export default css({
   flexDirection: "column",
   alignItems: "center",
   fontFamily: "Roboto, sans-serif",
+  width: "100%",
 
   h1: {
     fontSize: "3rem",
