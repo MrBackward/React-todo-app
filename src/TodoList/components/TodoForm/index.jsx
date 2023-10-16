@@ -1,6 +1,7 @@
 import React from "react";
 import { FormField } from "./components/FormField";
 import { Form, Button } from "./styled";
+import { getAiResponse } from "./service/getAiResponse";
 
 const TodoForm = ({ form, setFieldValue, handleSubmit }) => {
   return (
@@ -11,6 +12,9 @@ const TodoForm = ({ form, setFieldValue, handleSubmit }) => {
         label={"Task title"}
         type="text"
       />
+      <Button disabled={form.title === ''}
+        onClick={(e) => getAiResponse('', null, e)}
+      >Auto-generate description</Button>
       <FormField
         onChange={(e) => setFieldValue("description", e.target.value)}
         value={form.description}

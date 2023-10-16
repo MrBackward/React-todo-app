@@ -13,4 +13,10 @@ export default css({
     border: "2px solid #003399",
     cursor: "pointer",
   },
+
+  "&[disabled]": {
+    backgroundColor: "#CCCCCC",
+    border: "2px solid #CCCCCC",
+    cursor: "not-allowed",
+  }
 });
