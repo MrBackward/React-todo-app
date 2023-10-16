@@ -1,45 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import TodoItems from "./components/TodoItem";
 import TodoForm from "./components/TodoForm";
-import moment from "moment";
 import { TodoListWrapper } from "./styled";
+import { useForm } from "./hooks/useForm";
+import { useTaskItems } from "./hooks/useTaskItems";
+import { getCurrentTimePlus1Hour } from "./logic";
+
 
 function TodoList() {
-  const [userInput, setUserInput] = useState("");
-  const [userDate, setUserDate] = useState();
-  const handleChangeText = (event) => {
-    setUserInput(event.target.value);
-  };
+  const [form, setFieldValue, resetForm] = useForm({
+    title: "",
+    description: "",
+    completionTime: getCurrentTimePlus1Hour(),
+  });
 
-  const handleChangeDate = (event) => {
-    setUserDate(event.target.value);
-  };
-
-  const [items, setItems] = useState([]);
-  const addItem = (item) => {
-    if (item !== "") {
-      var input = {
-        text: item,
-        completionTime: moment(userDate).toISOString(),
-        key: Date.now(),
-        position: items.length,
-      };
-
-      setItems([...items, input]);
-    }
-  };
+  const [items, addItem, deleteItem] = useTaskItems(form)
 
   const handleSubmit = (e) => {
-    setUserInput("");
-    addItem(userInput);
-    document.getElementById("form").reset();
     e.preventDefault();
-  };
-
-  const deleteItem = (key) => {
-    var filteredItems = items.filter((d) => d.key !== key);
-
-    setItems(filteredItems);
+    addItem(form.title);
+    resetForm();
   };
 
   return (
@@ -47,8 +27,8 @@ function TodoList() {
       <h1>Todo App</h1>
       <h2>Enter your task and completion time</h2>
       <TodoForm
-        handleChangeText={handleChangeText}
-        handleChangeDate={handleChangeDate}
+        form={form}
+        setFieldValue={setFieldValue}
         handleSubmit={handleSubmit}
       />
       <TodoItems entries={items} delete={deleteItem} />
