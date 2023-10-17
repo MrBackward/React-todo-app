@@ -24,6 +24,7 @@ export default css({
     margin: 0,
     marginBottom: 5,
     whiteSpace: 'pre',
+    wordWrap: "break-word",
   },
 
   small: {

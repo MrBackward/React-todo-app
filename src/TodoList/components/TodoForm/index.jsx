@@ -20,7 +20,7 @@ const TodoForm = ({ form, setFieldValue, handleSubmit }) => {
         value={form.description}
         type="textarea"
         label="Task description"
-        rows="5"
+        rows="10"
       />
       <FormField
         onChange={(e) => setFieldValue("completionTime", e.target.value)}
