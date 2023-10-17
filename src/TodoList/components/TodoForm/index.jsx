@@ -2,8 +2,11 @@ import React from "react";
 import { FormField } from "./components/FormField";
 import { Form, Button } from "./styled";
 import { getAiResponse } from "./service/getAiResponse";
+import { BaseLoadingSpinner } from "./components/Spinner/styled";
 
 const TodoForm = ({ form, setFieldValue, handleSubmit }) => {
+  const [loading, setLoading] = React.useState(false);
+
   return (
     <Form id="form" onSubmit={handleSubmit}>
       <FormField
@@ -12,9 +15,13 @@ const TodoForm = ({ form, setFieldValue, handleSubmit }) => {
         label={"Task title"}
         type="text"
       />
-      <Button disabled={form.title === ''}
-        onClick={(e) => getAiResponse(form.title, setFieldValue, e)}
-      >Auto-generate description</Button>
+      <Button
+        disabled={form.title === ""}
+        onClick={(e) => getAiResponse(form.title, setFieldValue, e, setLoading)}
+      >
+        Auto-generate description
+      </Button>
+      {loading && <BaseLoadingSpinner />}
       <FormField
         onChange={(e) => setFieldValue("description", e.target.value)}
         value={form.description}

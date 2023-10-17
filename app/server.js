@@ -18,7 +18,7 @@ app.post("/aiCreateDescription", async (req, res) => {
   try {
     const response = await openAi.chat.completions.create({
       model: "gpt-3.5-turbo",
-      messages:[{role: "user", content: prompt,}]
+      messages: [{ role: "user", content: prompt }],
     });
 
     res.json({ text: response.choices[0].message });

@@ -22,7 +22,8 @@ export default css({
       true: {
         resize: "vertical",
         wordWrap: "break-word",
-        whiteSpace: 'pre',
+        whiteSpace: "pre",
+        textWrap: "balance",
       },
     },
   },

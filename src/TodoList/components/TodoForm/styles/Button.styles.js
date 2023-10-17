@@ -6,6 +6,7 @@ export default css({
   color: "#FFF",
   borderRadius: 5,
   width: 300,
+  height: 60,
   border: "2px solid #0066FF",
 
   "&:hover": {
@@ -18,5 +19,5 @@ export default css({
     backgroundColor: "#CCCCCC",
     border: "2px solid #CCCCCC",
     cursor: "not-allowed",
-  }
+  },
 });
