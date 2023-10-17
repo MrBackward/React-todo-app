@@ -13,7 +13,7 @@ const TodoForm = ({ form, setFieldValue, handleSubmit }) => {
         type="text"
       />
       <Button disabled={form.title === ''}
-        onClick={(e) => getAiResponse('', null, e)}
+        onClick={(e) => getAiResponse(form.title, setFieldValue, e)}
       >Auto-generate description</Button>
       <FormField
         onChange={(e) => setFieldValue("description", e.target.value)}

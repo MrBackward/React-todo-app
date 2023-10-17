@@ -8,7 +8,7 @@ export const getAiResponse = (input, setFieldValue, event) => {
       prompt: `Create a list of 5 subtasks of the provided task: '${input}', only return the 5 points and nothing else`,
     })
     .then((res) => {
-      console.log(res);
+        setFieldValue('description', res.data.text.content);
     })
     // setResponseState(result);
     .catch((err) => {

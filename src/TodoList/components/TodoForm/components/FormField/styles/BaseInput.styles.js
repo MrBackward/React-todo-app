@@ -21,6 +21,7 @@ export default css({
     isTextarea: {
       true: {
         resize: "vertical",
+        whiteSpace: 'pre',
       },
     },
   },

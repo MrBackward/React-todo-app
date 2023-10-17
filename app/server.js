@@ -1,27 +1,27 @@
 const express = require("express");
-const openAi = require("openai");
+const OpenAi = require("openai");
+const cors = require("cors");
 
 const app = express();
 const port = 3001;
 
-openAi.apiKey = "sk-2w7JZEYhkuWuMSh0AbTzT3BlbkFJnGNzwKaDGvLjfjYHaKMHser";
+const openAi = new OpenAi({
+  apiKey: "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",
+});
 
 app.use(express.json());
+app.use(cors());
 
 app.post("/aiCreateDescription", async (req, res) => {
   const { prompt } = req.body;
 
   try {
-    const response = await openAi.CreateCompletion({
-      engine: "text-davinci-002",
-      prompt: prompt,
-      maxTokens: 64,
-      temperature: 0.35,
-      n: 1,
-      stop: 4,
+    const response = await openAi.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages:[{role: "user", content: prompt,}]
     });
 
-    res.json({ text: response.choices[0].text });
+    res.json({ text: response.choices[0].message });
   } catch (err) {
     console.error(err);
     res
