@@ -21,6 +21,9 @@ export default css({
     isTextarea: {
       true: {
         resize: "vertical",
+        wordWrap: "break-word",
+        whiteSpace: "pre",
+        textWrap: "balance",
       },
     },
   },

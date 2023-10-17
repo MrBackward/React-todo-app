@@ -18,6 +18,7 @@ export const FormField = ({
           value={value}
           onChange={onChange}
           type={type}
+          wrap="hard"
           {...restProps}
         />
       ) : (

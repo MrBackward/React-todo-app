@@ -23,6 +23,8 @@ export default css({
     fontSize: "0.875rem",
     margin: 0,
     marginBottom: 5,
+    whiteSpace: "pre",
+    wordWrap: "break-word",
   },
 
   small: {
